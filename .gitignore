@@ -1,0 +1,34 @@
+# 1. Database Connections & Private Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+gcp-service-account*.json
+
+# 2. Local Dependencies & Machine Executables
+node_modules/
+.pnpm-store/
+.yarn/
+
+# 3. Next.js / Vite Build Outputs
+.next/
+dist/
+build/
+out/
+
+# 4. OS & Local Editor Settings
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# 5. Local Scratch & Test Scripts (Prevents git from wiping local scripts during branch switches)
+scratch.ts
+scratch/
+check-db.ts
+wipe.ts
+test-*.ts
+test_*.ts
+test*.ts

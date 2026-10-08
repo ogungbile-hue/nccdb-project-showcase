@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+/* ==========================================================================
+   NCCDB / Eighty-Two Limited — Design System
+   Single accent: #ff6b35 (brand orange)
+   Neutrals: slate family
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f8fafc;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Brand Design Tokens ── */
+:root {
+  --brand-orange:      #ff6b35;
+  --brand-orange-dim:  rgba(255, 107, 53, 0.12);
+  --brand-orange-glow: rgba(255, 107, 53, 0.30);
+  --brand-dark:        #07090f;
+  --brand-navy:        #0a0f1c;
+
+  --ink-900:  #0f172a;
+  --ink-700:  #334155;
+  --ink-500:  #64748b;
+  --ink-300:  #cbd5e1;
+  --ink-100:  #f1f5f9;
+  --ink-50:   #f8fafc;
+
+  --surface:          #ffffff;
+  --surface-raised:   #f8fafc;
+  --border:           #e2e8f0;
+  --border-subtle:    #f1f5f9;
+}
+
+/* ── Eighty-Two Badge Animation Keyframes ── */
+@keyframes eightytwoRingRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes eightytwoRingRotateRev {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+@keyframes eightytwoRimPulse {
+  0%, 100% { opacity: 0.45; }
+  50%       { opacity: 0.95; }
+}
+
+@keyframes eightytwoCenterFade {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.78; }
+}
+
+@keyframes eightytwoDotGlow {
+  0%, 100% { r: 3.5; opacity: 0.7; }
+  50%       { r: 5;   opacity: 1; }
+}
+
+/* ── Utility Animations ── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+.animate-fade-slide-up { animation: fadeSlideUp 0.25s ease-out both; }
+.animate-fade-in       { animation: fadeIn 0.2s ease-out both; }
+
+/* ── Status Dot ── */
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: #22c55e;
+  animation: pulse-soft 2.4s ease-in-out infinite;
+}
+
+/* ── Brand accent stripe (top border) ── */
+.brand-stripe::before {
+  content: '';
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-orange) 0%, rgba(255,107,53,0.3) 60%, transparent 100%);
+  position: absolute;
+  top: 0; left: 0; right: 0;
+}
+
+/* ── Focus Ring: use brand orange ── */
+:focus-visible {
+  outline: 2px solid var(--brand-orange);
+  outline-offset: 2px;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--ink-100); }
+::-webkit-scrollbar-thumb { background: var(--ink-300); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-500); }

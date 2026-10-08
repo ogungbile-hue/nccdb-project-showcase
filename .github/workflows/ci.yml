@@ -5,10 +5,11 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
+  workflow_dispatch:
 
 jobs:
   test:
-    name: Type Check & Automated Test Suite
+    name: Type Check, Test & Build
     runs-on: ubuntu-latest
 
     steps:
@@ -32,3 +33,6 @@ jobs:
 
       - name: Run test suite
         run: npm test
+
+      - name: Build production assets
+        run: npm run build

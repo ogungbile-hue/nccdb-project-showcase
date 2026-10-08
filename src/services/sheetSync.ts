@@ -60,3 +60,25 @@ export const syncSupplierSheet = async (spreadsheetId: string): Promise<SheetSyn
     timestamp: new Date().toISOString(),
   };
 };
+
+export interface SheetMaterialRow {
+  code: string;
+  name: string;
+  unit: string;
+  category: string;
+  specification?: string;
+}
+
+/**
+ * Upserts a single material registry item from a parsed spreadsheet row.
+ */
+export async function upsertMaterialRegistryItem(_row: SheetMaterialRow): Promise<void> {
+  // Architectural stub for master material upsert
+}
+
+/**
+ * Synchronizes the canonical master material registry from the central registry sheet.
+ */
+export const syncMasterMaterialRegistry = async (spreadsheetId: string): Promise<void> => {
+  console.log(`[Showcase SyncDaemon] Received master registry sync trigger: ${spreadsheetId}`);
+};
